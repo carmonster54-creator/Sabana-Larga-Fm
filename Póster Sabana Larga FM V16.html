@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Póster Sabana Larga FM V16</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #021c3d;
+            --yellow: #ffd700;
+            --red: #e62e2e;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+        }
+
+        /* Contenedor principal del Póster con la imagen de fondo */
+        .poster {
+            width: 100%;
+            max-width: 600px;
+            /* Combinación de capa oscura semitransparente + imagen de fondo */
+            background-image: linear-gradient(rgba(2, 28, 61, 0.85), rgba(0, 75, 135, 0.85)), url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            overflow: hidden;
+            position: relative;
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Título Superior */
+        .header h1 {
+            font-size: 1.2rem;
+            color: var(--yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.3;
+            text-shadow: 2px 2px 5px rgba(0,0,0,1);
+        }
+        .header h1 span {
+            font-size: 1.5rem;
+            display: block;
+            color: var(--white);
+        }
+
+        /* Área del Logo */
+        .logo-area {
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Estilo para la imagen del logo */
+        .logo-img {
+            width: 85%;
+            max-width: 350px;
+            height: auto;
+            display: block;
+            /* Sombra para que el logo resalte sobre la foto de fondo */
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.03);
+        }
+
+        .slogan {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--yellow);
+            font-style: italic;
+            text-shadow: 2px 2px 4px #000;
+            margin-top: 5px;
+        }
+
+        /* Sección Central: Texto y Celular */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        .info-text h2 {
+            font-size: 1.1rem;
+            line-height: 1.4;
+            font-weight: 800;
+            color: var(--white);
+            text-shadow: 2px 2px 5px rgba(0,0,0,1);
+        }
+        .info-text h2 span {
+            color: var(--yellow);
+            font-size: 1.3rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Maqueta del Celular */
+        .phone-mockup {
+            width: 180px;
+            height: 350px;
+            background: #000;
+            border-radius: 25px;
+            border: 4px solid #333;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.9), inset 0 0 10px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 10px;
+        }
+        
+        /* Pantalla del celular */
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #2a0000 0%, #000000 100%);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #444;
+            position: relative;
+        }
+
+        .app-logo {
+            font-family: 'Oswald', sans-serif;
+            color: var(--white);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .app-logo span {
+            color: var(--red);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        .live-btn {
+            background-color: var(--red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px var(--red);
+            animation: pulse 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px var(--red); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px var(--red); }
+            100% { transform: scale(1); box-shadow: 0 0 10px var(--red); }
+        }
+
+        /* Botón de Play / Pausa */
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--red);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .play-btn:hover {
+            background: rgba(230, 46, 46, 0.3);
+            transform: scale(1.1);
+        }
+        .play-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Sección de Descarga (CTA) */
+        .cta-section {
+            background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para contraste */
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
+        }
+
+        .cta-btn {
+            background-color: var(--red);
+            color: var(--white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 0 #8a0000, 0 8px 15px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 0 0 #8a0000, 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Enlace de la tienda de aplicaciones */
+        .store-link {
+            text-decoration: none;
+            width: 100%;
+            max-width: 250px;
+            display: block;
+        }
+        .store-badge {
+            background: #000;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            border: 1px solid #444;
+            justify-content: center;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        .store-badge:hover {
+            background: #222;
+        }
+        .store-badge::before {
+            content: "▶"; 
+            color: #00e676;
+            font-size: 1.2rem;
+        }
+        .store-badge span {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Enlace del Código QR */
+        .qr-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+            padding: 10px;
+            border-radius: 10px;
+            color: #000;
+            text-align: left;
+            font-size: 0.7rem;
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .qr-link:hover {
+            transform: scale(1.02);
+        }
+        .qr-code {
+            width: 50px;
+            height: 50px;
+            background: repeating-linear-gradient(45deg, #000, #000 5px, #fff 5px, #fff 10px);
+            border: 2px solid #000;
+        }
+        .qr-link p {
+            font-weight: bold;
+            line-height: 1.2;
+            color: #000;
+        }
+        .qr-link p small {
+            display: block;
+            font-weight: normal;
+            color: #555;
+            font-size: 0.6rem;
+            word-break: break-all;
+        }
+
+        .search-text {
+            font-size: 0.8rem;
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid var(--yellow);
+            text-align: left;
+            width: 100%;
+        }
+        .search-text strong {
+            color: var(--yellow);
+            font-size: 1rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Beneficios (Footer) */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            text-align: left;
+            color: #eee;
+        }
+        .feature-item span {
+            font-size: 1.2rem;
+        }
+
+        .footer-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: var(--yellow);
+            margin-top: 10px;
+            font-style: italic;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        /* Ajustes para pantallas más grandes */
+        @media (min-width: 480px) {
+            .main-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            .info-text {
+                width: 55%;
+            }
+            .phone-mockup {
+                width: 40%;
+            }
+            .features {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+                font-size: 0.7rem;
+            }
+            .feature-item span {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>¡LA MEJOR MÚSICA <br><span>TE ACOMPAÑA SIEMPRE!</span></h1>
+        </div>
+
+        <!-- Logo (Reemplazado por la imagen) -->
+        <div class="logo-area">
+            <img src="logo.png" alt="Sabana Larga FM Logo" class="logo-img">
+            <div class="slogan">¡La que te gusta!</div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <div class="info-text">
+                <h2>ESCUCHARÁS LA MEJOR MÚSICA <br>DE LOS <br><span>RITMOS DOMINICANOS Y CARIBEÑOS</span></h2>
+            </div>
+            
+            <!-- Celular -->
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="app-logo">SABANA LARGA <span>FM V16</span></div>
+                    <div class="live-btn">EN VIVO</div>
+                    <!-- Botón de Play con ID para el script -->
+                    <div class="play-btn" id="playButton" onclick="toggleLiveStream()">▶</div>
+                    
+                    <!-- Reproductor de audio oculto -->
+                    <audio id="liveStream" src="https://uk19freenew.listen2myradio.com/live.mp3?typeportmount=s1_24751_stream_599411997" preload="none"></audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- Llamado a la acción -->
+        <div class="cta-section">
+            <!-- Botón principal que redirige a la Play Store -->
+            <a href="https://play.google.com/store/apps/details?id=com.sabanalargafm.app" target="_blank" class="cta-btn">¡DESCÁRGALA AHORA!</a>
+            
+            <!-- Enlace de la tienda de aplicaciones -->
+            <a href="https://play.google.com/store/apps/details?id=com.sabanalargafm.app" target="_blank" class="store-link">
+                <div class="store-badge">
+                    DISPONIBLE EN <span>Google Play</span>
+                </div>
+            </a>
+
+            <!-- Enlace del QR que también redirige -->
+            <a href="https://play.google.com/store/apps/details?id=com.sabanalargafm.app" target="_blank" class="qr-link">
+                <div class="qr-code"></div>
+                <p>O descárgala aquí:<br><small>play.google.com/store/apps/details?id=com.sabanalargafm.app</small></p>
+            </a>
+
+            <div class="search-text">
+                TAMBIÉN PUEDES BUSCARLA POR SU NOMBRE:
+                <strong>“SABANA LARGA FM V16”</strong>
+            </div>
+        </div>
+
+        <!-- Beneficios -->
+        <div class="features">
+            <div class="feature-item"><span>🎵</span> Música sin límites</div>
+            <div class="feature-item"><span>🎙️</span> Programación en vivo</div>
+            <div class="feature-item"><span>🌐</span> Desde cualquier lugar</div>
+            <div class="feature-item"><span>❤️</span> La que te gusta</div>
+        </div>
+
+        <!-- Pie de página -->
+        <div class="footer-text">
+            ¡Siente el ritmo, vive tu música, es Sabana Larga FM!
+        </div>
+    </div>
+
+    <!-- Script para controlar el reproductor en vivo -->
+    <script>
+        function toggleLiveStream() {
+            const audio = document.getElementById('liveStream');
+            const button = document.getElementById('playButton');
+
+            if (audio.paused) {
+                // Si está pausado, reproducir
+                audio.play().then(() => {
+                    button.innerHTML = '❚❚'; // Cambia el icono a pausa
+                }).catch(error => {
+                    console.error("Error al reproducir el stream:", error);
+                    alert("No se pudo conectar al stream en vivo. Por favor, inténtalo de nuevo.");
+                });
+            } else {
+                // Si está reproduciendo, pausar
+                audio.pause();
+                button.innerHTML = '▶'; // Cambia el icono de vuelta a play
+            }
+        }
+    </script>
+
+</body>
+</html>
